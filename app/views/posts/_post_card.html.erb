@@ -1,0 +1,16 @@
+<!-- Basic style sourced from: https://tailwindcomponents.com/component/paragraph-with-image -->
+    
+<div class="bg-white w-full flex max-w-5xl shadow-lg rounded-lg">
+    <div class="lg:w-1/2">
+      <div class="h-64 bg-cover lg:rounded-lg lg:h-full" style="background-image:url('https://source.unsplash.com/random/800x600')"></div>
+    </div>
+    <div class="py-12 px-6 w-1/2">
+      <h2 class="text-3xl text-gray-800 font-bold"> <%=link_to post.title, post_path(post) %> </h2>
+      <p class="mt-4 text-gray-600"><%= truncate(post.body, length: 100) %></p>
+      <div class="mt-8">
+        <%= link_to "Comments (#{post.comments_count})", post_path(post) %>
+      </div>
+      <div class="text-gray-600 italic py-4"> Written by: <%= post.author.name %> on <%= formatted_date(post.created_at) %> </div>
+    </div>
+</div>
+

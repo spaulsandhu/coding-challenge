@@ -1,1 +1,37 @@
-<!-- View for showing all `Post` -->
+<div class="my-2">
+  <%= form_with url: posts_path, method: :get, local: true do |f| %>
+    <%= f.search_field "query", { 
+          placeholder: "Search posts by title or body...", 
+          class: "bg-purple-white shadow rounded border-0 p-3 w-full",
+          value: @query
+        }
+    %>
+  <% end %>
+</div> 
+
+<% if @query %>
+  <div class="text-3xl"> Showing results for: <%= @query %></div>
+<% else %>
+  <div class="text-3xl"> View All Posts </div>
+<% end %>
+
+<% @posts.each do |post| %>
+  <div class="py-6">
+    <%= render partial: "post_card", locals: { post: post } %>
+  </div>
+<% end %>
+
+<div class="flex-row pt-6">
+  <div class="flex flex-row">
+    <div class="flex justify-start w-1/2 pt-6"> 
+      <% unless @posts.first_page? %>
+        <%= link_to_previous_page @posts, 'Previous Page', class: "btn btn-page" %> 
+      <% end %>
+    </div>
+    <div class="flex justify-end w-1/2 pt-6"> 
+      <% unless @posts.last_page? %>
+        <%= link_to_next_page @posts, 'Next Page', class: "btn btn-page" %> 
+      <% end %>
+    </div>          
+  </div>
+</div>
