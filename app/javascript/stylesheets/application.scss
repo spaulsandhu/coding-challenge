@@ -1,0 +1,91 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "flash";
+
+h1 {
+  font-size: 2.0rem;
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded inline-block;
+}
+
+.btn-sm {
+  @apply font-bold px-1 rounded inline-block;
+}
+
+.btn-edit {
+  @apply bg-purple-600 text-white;
+
+  &:hover {
+    @apply bg-purple-400;
+  }
+}
+
+.btn-edit-alt-pink {
+  @apply bg-pink-600 text-white;
+
+  &:hover {
+    @apply bg-pink-400;
+  }
+}
+
+.btn-page {
+  @apply bg-yellow-400
+}
+
+.btn-page:hover {
+  @apply bg-yellow-200
+}
+
+.btn-delete {
+  @apply bg-red-600 text-white; 
+}
+
+.btn-delete:hover {
+  @apply bg-red-400 
+}
+
+.field_with_errors {
+  input, textarea {
+    @apply border-solid border-red-600;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.error-text {
+  @apply block text-red-600 text-xs italic
+}
+
+.form-label {
+  @apply block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2;
+}
+
+.form-field {
+  @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight;
+  
+  &:focus {
+    @apply outline-none bg-white border-gray-500;
+  }
+}
+
+.form-submit {
+  @apply shadow bg-teal-400 text-white font-bold py-2 px-4 inline-block rounded;
+
+  &:focus {
+    @apply shadow-outline outline-none;
+  }
+
+  &:hover {
+    @apply bg-teal-600;
+    cursor:pointer;
+  }
+}
+
+.hidden {
+  display: none;
+}
