@@ -34,6 +34,7 @@ gem 'pg'
 gem 'kaminari'
 gem 'pg_search'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'rubocop'
 
 group :development, :test do
   gem 'pry'
