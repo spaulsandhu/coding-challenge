@@ -1,0 +1,7 @@
+<% if @post.comments.none? %>
+  <h4> There are no comments for this post, add some now! </h4>
+<% else %>
+  <% @post.comments.each do |comment| %>
+    <%= render partial: "posts/comments/show", locals: { comment: comment } %>
+  <% end %>
+<% end %>

@@ -1,0 +1,24 @@
+<div id="comment-body">
+  <div class="w-3/4 rounded overflow-hidden shadow-lg">
+    <div class="px-6 py-4">
+      <div class="font-bold text-lg mb-2"> <%= comment.author.name %> on <%= formatted_date(comment.created_at) %> </div>
+      <p class="text-gray-700 text-base"> <%= comment.body %> </p>
+    </div>
+    <div class="px-6 py-4">
+      <%= link_to "Edit", 
+          edit_post_comment_path(@post, comment), 
+          data: { target: "comments.editComment", action: "ajax:success->comments#editComment" },
+          method: :get, 
+          remote: true, 
+          class: "btn-sm btn-edit" 
+      %>
+      <%= link_to "Delete", 
+          post_comment_path(@post, comment), 
+          data: { action: "ajax:success->comments#renderCommentList" }, 
+          method: :delete, 
+          remote: true, 
+          class: "btn-sm btn-delete" 
+      %>
+    </div>
+  </div>
+</div>
