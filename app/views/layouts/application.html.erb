@@ -3,12 +3,21 @@
   <head>
     <title>CodeingChallenge</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/navbar" %>
+  
+    <div class="max-w-screen-lg mx-auto pt-20 pb-10">
+      <% if flash.any? %>
+        <% flash.each do |flash_type, msg| %>
+          <%= render partial: "shared/flash", locals: { flash_type: flash_type, message: msg } %>
+        <% end %>
+      <% end %>
+      
+      <%= yield %>
+    </div>
   </body>
 </html>
