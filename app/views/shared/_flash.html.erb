@@ -1,0 +1,8 @@
+<div class="flex justify-center" data-controller="flash" data-target="flash.alert">
+  <div role="alert" class="w-1/2 alert-box">
+    <div class="<%= flash_type %>-bg"> Hey! <span class="absolute top-0 right-0 px-4 py-3 close-x" data-action="click->flash#closeFlash"> X </span> </div>
+    <div class="flash-<%= flash_type %>-text">
+      <p> <%= message %> </p>
+    </div>
+  </div>
+</div>

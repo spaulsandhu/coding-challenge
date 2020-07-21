@@ -34,12 +34,14 @@ gem 'pg'
 gem 'kaminari'
 gem 'pg_search'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'rubocop'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 4.0.0'
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 3.18'
+  gem 'webdrivers'
   gem 'selenium-webdriver'
 end
 

@@ -1,1 +1,46 @@
-<!-- View for showing a single `Post` -->
+<!-- styling here is copied from a side project I've been working on -->
+<div class="p-8">
+  <div class="shadow-sm rounded-lg pb-20">
+    <div style="background-image: url(https://source.unsplash.com/random/800x600)" class="h-64 bg-gray-200 bg-cover bg-center rounded-t-lg flex items-center justify-center bg-opacity-50"> 
+      <p class="text-white font-bold text-4xl"><%= @post.title %></p>
+    </div>
+    
+    <div class="bg-white rounded-b-lg px-8">
+      <div class="relative">
+        <%= image_tag "https://i.pravatar.cc/300", class: "right-0 w-16 h-16 rounded-full mr-4 shadow-lg absolute -mt-8"%>
+      </div>
+      
+      <div class="pt-8 pb-8">
+        <h1 class="text-2xl font-bold text-gray-700">Written By: <%= @post.author.name%></h1>
+        <div class='py-4'>
+          <div class="inline-flex">
+            <p class="text-gray-700 text-lg font-bold leading-10 pr-10"> <%= @post.body %> </p>
+          </div>
+        </div>
+      </div>
+      
+      <% if current_user == @post.author %>
+        <div class="flex mt-4 py-4">
+          <div> 
+            <%= link_to 'Delete Post', post_path(@post), method: :delete, class: "btn btn-delete" %>
+          </div>
+        </div>
+      <% end %>
+
+  </div>
+</div>
+
+<hr />
+
+<div data-controller="comments">
+  <!-- Another div target to replace with form rendered from server -->
+  <div data-target="comments.newComment" class="pb-8">
+    <%= render partial: "posts/comments/form", locals: { comment: Comment.new } %>
+  </div>
+
+  <!-- This div will need to be data target for the stimulus controller render partial comment_list-->
+  <div data-target="comments.list">
+    <div class="text-lg text-blue-400 pb-6"> Comments </div>
+    <%= render partial: "posts/comments/comment_list" %>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search, against: [:title, :body]
   
   paginates_per 5
